@@ -26,4 +26,4 @@ VOLUME	/var/www/
 
 EXPOSE  80
 
-ENTRYPOINT ["/apache-entrypoint.sh"]
+ENTRYPOINT ["apachectl", "-D", "FOREGROUND"]
