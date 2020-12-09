@@ -89,14 +89,6 @@ services:
       MYSQL_PASSWORD_FILE: /run/secrets/db_pwd
     networks:
       - nc_net
-    healthcheck:
-      test:
-        - CMD
-        - mysqladmin
-        - ping
-        - -u
-        - root
-        - -p$$(cat /var/run/secrets/db_pwd)
 
   redis:
     image: 'bitnami/redis:6.0'
