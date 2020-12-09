@@ -44,7 +44,7 @@ services:
           cpus: '2'
           memory: 400M
         reservations:
-          memory: 300M
+          memory: 100M
           cpus: '0.5'
       update_config:
         order: start-first
@@ -73,7 +73,7 @@ services:
           cpus: '2'
           memory: 200M
         reservations:
-          memory: 200M
+          memory: 100M
           cpus: '0.5'
     volumes:
       - nextc_db:/var/lib/mysql/
