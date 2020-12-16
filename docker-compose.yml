@@ -30,7 +30,11 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - nextc_certbot_root:/var/www/
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://127.0.0.1/healthz"]
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/healthz", "||", "exit", "1"]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 2
     networks:
       - nc_net
       - int_net
@@ -61,7 +65,11 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost"]
+      test: ["CMD", "curl", "-f", "http://localhost", "||", "exit", "1"]
+      start_period: 10s
+      interval: 5s
+      timeout: 5s
+      retries: 2
     networks:
       - nc_net
 
