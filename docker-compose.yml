@@ -41,7 +41,7 @@ services:
 
 
   web:
-    image: leschard/nextcloud
+    image: leschard/nextcloud:stable
     deploy:
       resources:
         limits:
