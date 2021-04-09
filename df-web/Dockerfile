@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 ENV TERM=xterm
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PHP_INI=/etc/php/7.4/apache2/php.ini
+ENV PHP_INI_CLI=/etc/php/7.4/cli/php.ini
 
 COPY ./apache-entrypoint.sh /
 
@@ -14,6 +15,7 @@ RUN apt-get update \
     && apt-get purge -y --auto-remove \
     && rm -rf /var/lib/apt/lists/*
 
+RUN echo "apc.enable_cli=1" >> $PHP_INI_CLI
 
 RUN	chmod o+x /apache-entrypoint.sh
 
