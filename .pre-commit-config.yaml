@@ -14,6 +14,6 @@ repos:
       - id: check-json
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.0
+    rev: v1.26.1
     hooks:
       - id: yamllint
